@@ -39,6 +39,7 @@
 		33DD34221F1367F300938FE4 /* AlertBase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertBase.swift; sourceTree = "<group>"; };
 		33DD34241F1367F300938FE4 /* AlertDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertDelegate.swift; sourceTree = "<group>"; };
 		33DD34251F1367F300938FE4 /* AlertProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertProtocol.swift; sourceTree = "<group>"; };
+		33DD342B1F13706400938FE4 /* Package.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +64,7 @@
 		33DD33FA1F13673800938FE4 = {
 			isa = PBXGroup;
 			children = (
+				33DD342B1F13706400938FE4 /* Package.swift */,
 				33DD34061F13673800938FE4 /* Message */,
 				33DD34111F13673800938FE4 /* MessageTests */,
 				33DD34051F13673800938FE4 /* Products */,
@@ -373,6 +375,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = Message/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.incetro.Message;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -391,6 +394,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = Message/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.incetro.Message;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -442,6 +446,7 @@
 				33DD341A1F13673800938FE4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		33DD341B1F13673800938FE4 /* Build configuration list for PBXNativeTarget "MessageTests" */ = {
 			isa = XCConfigurationList;
@@ -450,6 +455,7 @@
 				33DD341D1F13673800938FE4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
