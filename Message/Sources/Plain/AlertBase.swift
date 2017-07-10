@@ -195,10 +195,10 @@ public class AlertBase: AlertProtocol {
         
         self.delegate?.willDisappear(self)
         
-        alert?.dismiss(animated: true, completion: { 
+        alert?.dismiss(animated: true) {
             
             self.delegate?.didDisappear(self)
-        })
+        }
     }
     
     /// Show after time interval
