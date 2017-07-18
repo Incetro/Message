@@ -1,5 +1,5 @@
-Message
-==========
+![Placeholder](https://user-images.githubusercontent.com/13930558/28309494-34957c30-6bb2-11e7-974d-bd2813c3c6e0.png)
+
 [![Build Status](https://travis-ci.org/incetro/Message.svg?branch=master)](https://travis-ci.org/incetro/Message)
 [![CocoaPods](https://img.shields.io/cocoapods/v/Message.svg)](https://img.shields.io/cocoapods/v/Message.svg)
 [![Carthage Compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
