@@ -15,23 +15,19 @@ public class AlertBase: AlertProtocol {
     // MARK: - AlertProtocol
     
     public var type: UIAlertControllerStyle {
-        
         fatalError("You should override this property in subclasses")
     }
     
     public var textFields: [UITextField] {
-        
         return alert?.textFields ?? []
     }
     
     // MARK: - Properties
     
     /// UIAlertController instance
-    
     internal var alert: UIAlertController?
     
     /// Delegate instance
-    
     fileprivate var delegate: AlertDelegate? = nil
     
     // MARK: - Initializers
@@ -41,18 +37,14 @@ public class AlertBase: AlertProtocol {
     /// - Parameters:
     ///   - title: Dialog title
     ///   - message: Dialog message
-    
     public init(withTitle title: String, message: String) {
-        
         alert = UIAlertController(title: title, message: message, preferredStyle: type)
     }
     
     /// Short initializer
     ///
     /// - Parameter message: Dialog message
-    
     public init(withMessage message: String) {
-        
         alert = UIAlertController(title: nil, message: message, preferredStyle: type)
     }
     
@@ -62,15 +54,14 @@ public class AlertBase: AlertProtocol {
     ///
     /// - Parameter title: Button title
     /// - Returns: self
-    
-    public func addDestructiveButton(withTitle title: String) -> AlertBase {
-        
-        alert?.addAction(UIAlertAction(title: title, style: .destructive, handler: { _ in
-            
+    public func addDestructiveButton(withTitle title: String) -> Self {
+        alert?.addAction(UIAlertAction(title: title, style: .destructive, handler: { [weak self] _ in
+            guard let `self` = self else {
+                return
+            }
             self.delegate?.willDisappear(self)
             self.delegate?.didDisappear(self)
         }))
-        
         return self
     }
     
@@ -78,15 +69,14 @@ public class AlertBase: AlertProtocol {
     ///
     /// - Parameter title: Button title
     /// - Returns: self
-    
-    public func addCancelButton(withTitle title: String) -> AlertBase {
-        
-        alert?.addAction(UIAlertAction(title: title, style: .cancel, handler: { _ in
-            
+    public func addCancelButton(withTitle title: String) -> Self {
+        alert?.addAction(UIAlertAction(title: title, style: .cancel, handler: { [weak self] _ in
+            guard let `self` = self else {
+                return
+            }
             self.delegate?.willDisappear(self)
             self.delegate?.didDisappear(self)
         }))
-        
         return self
     }
     
@@ -94,15 +84,14 @@ public class AlertBase: AlertProtocol {
     ///
     /// - Parameter title: Button title
     /// - Returns: self
-    
-    public func addButton(withTitle title: String) -> AlertBase {
-        
-        alert?.addAction(UIAlertAction(title: title, style: .default, handler: { _ in
-            
+    public func addButton(withTitle title: String) -> Self {
+        alert?.addAction(UIAlertAction(title: title, style: .default, handler: { [weak self] _ in
+            guard let `self` = self else {
+                return
+            }
             self.delegate?.willDisappear(self)
             self.delegate?.didDisappear(self)
         }))
-        
         return self
     }
     
@@ -111,17 +100,16 @@ public class AlertBase: AlertProtocol {
     /// - Parameters:
     ///   - title: Button title
     ///   - action: Button action
-    /// - Returns: Текущий объект
-    
-    public func addCancelButton(withTitle title: String, andAction action: @escaping (_ alert: AlertBase) -> ()) -> AlertBase {
-        
-        alert?.addAction(UIAlertAction(title: title, style: .cancel, handler: { _ in
-            
+    /// - Returns: self
+    public func addCancelButton(withTitle title: String, andAction action: @escaping (_ alert: AlertBase) -> ()) -> Self {
+        alert?.addAction(UIAlertAction(title: title, style: .cancel, handler: { [weak self] _ in
+            guard let `self` = self else {
+                return
+            }
             self.delegate?.willDisappear(self)
             action(self)
             self.delegate?.didDisappear(self)
         }))
-        
         return self
     }
     
@@ -131,16 +119,15 @@ public class AlertBase: AlertProtocol {
     ///   - title: Button title
     ///   - action: Button action
     /// - Returns: self
-    
-    public func addDestructiveButton(withTitle title: String, andAction action: @escaping (_ alert: AlertBase) -> ()) -> AlertBase {
-        
-        alert?.addAction(UIAlertAction(title: title, style: .destructive, handler: { _ in
-            
+    public func addDestructiveButton(withTitle title: String, andAction action: @escaping (_ alert: AlertBase) -> ()) -> Self {
+        alert?.addAction(UIAlertAction(title: title, style: .destructive, handler: { [weak self] _ in
+            guard let `self` = self else {
+                return
+            }
             self.delegate?.willDisappear(self)
             action(self)
             self.delegate?.didDisappear(self)
         }))
-        
         return self
     }
     
@@ -150,40 +137,31 @@ public class AlertBase: AlertProtocol {
     ///   - title: Button title
     ///   - action: Button action
     /// - Returns: self
-    
-    public func addButton(withTitle title: String, andAction action: @escaping (_ alert: AlertBase) -> ()) -> AlertBase {
-        
-        alert?.addAction(UIAlertAction(title: title, style: .default, handler: { _ in
-            
+    public func addButton(withTitle title: String, andAction action: @escaping (_ alert: AlertBase) -> ()) -> Self {
+        alert?.addAction(UIAlertAction(title: title, style: .default, handler: { [weak self] _ in
+            guard let `self` = self else {
+                return
+            }
             self.delegate?.willDisappear(self)
             action(self)
             self.delegate?.didDisappear(self)
         }))
-        
         return self
     }
     
     /// Show alert controller
     ///
     /// - Parameter delegate: Current delegate
-    
-    public func show(`in` controller: UIViewController? = UIApplication.shared.keyWindow?.rootViewController, withDelegate delegate: AlertDelegate? = nil, completion: ((Void) -> Void)? = nil) {
-        
+    public func show(`in` controller: UIViewController? = UIApplication.shared.keyWindow?.rootViewController, withDelegate delegate: AlertDelegate? = nil, completion: (() -> Void)? = nil) {
         if let delegate = delegate {
-            
             self.delegate = delegate
         }
-        
         if let alert = alert {
-            
             DispatchQueue.main.async {
-                
-                self.delegate?.willShow(self)
-                
+                delegate?.willShow(self)
                 controller?.present(alert, animated: true, completion: {
-                    
                     completion?()
-                    self.delegate?.didShow(self)
+                    delegate?.didShow(self)
                 })
             }
         }
@@ -192,11 +170,11 @@ public class AlertBase: AlertProtocol {
     /// Close current controller
     
     public func close() {
-        
-        self.delegate?.willDisappear(self)
-        
-        alert?.dismiss(animated: true) {
-            
+        delegate?.willDisappear(self)
+        alert?.dismiss(animated: true) { [weak self] in
+            guard let `self` = self else {
+                return
+            }
             self.delegate?.didDisappear(self)
         }
     }
@@ -204,23 +182,18 @@ public class AlertBase: AlertProtocol {
     /// Show after time interval
     ///
     /// - Parameter timeInterval: time interval before showing
-    
     public func show(after timeInterval: Double) {
-        
-        DispatchQueue.main.asyncAfter(deadline: .now() + timeInterval) { 
-            
-            self.show()
+        DispatchQueue.main.asyncAfter(deadline: .now() + timeInterval) { [weak self] in
+            self?.show()
         }
     }
     
     /// Show immediately
     ///
     /// - Parameter closeTimeInterval: time interval before closing
-    
     public func show(andCloseAfter closeTimeInterval: Double) {
-        
-        self.show()
-        self.close(after: closeTimeInterval)
+        show()
+        close(after: closeTimeInterval)
     }
     
     /// Show after time interval and close after time interval
@@ -228,11 +201,11 @@ public class AlertBase: AlertProtocol {
     /// - Parameters:
     ///   - showTimeInterval:  time interval before showing
     ///   - closeTimeInterval: time interval before closing
-    
     public func show(after showTimeInterval: Double, andCloseAfter closeTimeInterval: Double) {
-        
-        DispatchQueue.main.asyncAfter(deadline: .now() + showTimeInterval) {
-            
+        DispatchQueue.main.asyncAfter(deadline: .now() + showTimeInterval) { [weak self] in
+            guard let `self` = self else {
+                return
+            }
             self.show()
             self.close(after: closeTimeInterval)
         }
@@ -243,11 +216,11 @@ public class AlertBase: AlertProtocol {
     /// Close after given interval
     ///
     /// - Parameter timeInterval: given interval
-    
     private func close(after timeInterval: Double) {
-        
-        DispatchQueue.main.asyncAfter(deadline: .now() + timeInterval) {
-            
+        DispatchQueue.main.asyncAfter(deadline: .now() + timeInterval) { [weak self] in
+            guard let `self` = self else {
+                return
+            }
             self.close()
         }
     }

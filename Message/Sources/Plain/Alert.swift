@@ -13,7 +13,6 @@ import UIKit
 public class Alert: AlertBase {
     
     override public var type: UIAlertControllerStyle {
-        
         return .alert
     }
     
@@ -21,11 +20,8 @@ public class Alert: AlertBase {
     ///
     /// - Parameter configurationHandler: UITextField config
     /// - Returns: self
-    
     public func addTextField(_ configurationHandler: ((UITextField) -> ())? = nil) -> AlertBase {
-        
         alert?.addTextField(configurationHandler: configurationHandler)
-        
         return self
     }
 }

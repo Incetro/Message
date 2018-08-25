@@ -13,10 +13,8 @@ import UIKit
 public protocol AlertProtocol {
     
     /// Alert style
-    
     var type: UIAlertControllerStyle { get }
     
-    /// All text fields in the current alert
-    
+    /// All available text fields in the current alert
     var textFields: [UITextField] { get }
 }

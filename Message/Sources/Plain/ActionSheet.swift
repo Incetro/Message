@@ -11,9 +11,8 @@ import UIKit
 // MARK: - ActionSheet
 
 public class ActionSheet: AlertBase {
-    
+
     override public var type: UIAlertControllerStyle {
-        
         return .actionSheet
     }
 }

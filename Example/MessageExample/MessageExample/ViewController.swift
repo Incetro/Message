@@ -15,10 +15,12 @@ class ViewController: UIViewController {
         
         super.viewDidLoad()
         
-        Alert(withTitle: "Title", message: "Your message").addTextField { textField in
-            
-            textField.placeholder = "Placeholder"
-            
-        }.addButton(withTitle: "Ok!").addCancelButton(withTitle: "Close").show(in: self)
+        Alert(withTitle: "Title", message: "Your message")
+            .addTextField { textField in
+                textField.placeholder = "Placeholder"
+            }
+            .addButton(withTitle: "Ok!")
+            .addCancelButton(withTitle: "Close")
+            .show(in: self)
     }
 }
