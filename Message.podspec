@@ -1,6 +1,6 @@
 Pod::Spec.new do |spec|
     spec.name           = "Message"
-    spec.version        = "1.0.3"
+    spec.version        = "1.0.4"
     spec.summary        = "A simple and useful wrapper for showing information messages"
 
     spec.homepage       = "https://github.com/incetro/Message.git"
