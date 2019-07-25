@@ -12,7 +12,7 @@ import UIKit
 
 public class ActionSheet: AlertBase {
 
-    override public var type: UIAlertControllerStyle {
+    override public var type: UIAlertController.Style {
         return .actionSheet
     }
 }
