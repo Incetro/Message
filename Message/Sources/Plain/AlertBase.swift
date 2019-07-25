@@ -14,7 +14,7 @@ public class AlertBase: AlertProtocol {
     
     // MARK: - AlertProtocol
     
-    public var type: UIAlertControllerStyle {
+    public var type: UIAlertController.Style {
         fatalError("You should override this property in subclasses")
     }
     
