@@ -10,7 +10,7 @@ import UIKit
 
 // MARK: - ActionSheet
 
-public class ActionSheet: AlertBase {
+public final class ActionSheet: AlertBase {
 
     override public var type: UIAlertController.Style {
         return .actionSheet

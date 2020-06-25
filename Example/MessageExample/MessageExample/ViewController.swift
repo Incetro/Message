@@ -12,9 +12,7 @@ import Message
 class ViewController: UIViewController {
 
     override func viewDidLoad() {
-        
         super.viewDidLoad()
-        
         Alert(withTitle: "Title", message: "Your message")
             .addTextField { textField in
                 textField.placeholder = "Placeholder"

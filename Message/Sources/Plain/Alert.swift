@@ -10,17 +10,17 @@ import UIKit
 
 // MARK: - Alert
 
-public class Alert: AlertBase {
-    
+public final class Alert: AlertBase {
+
     override public var type: UIAlertController.Style {
         return .alert
     }
-    
+
     /// Add text field
     ///
     /// - Parameter configurationHandler: UITextField config
     /// - Returns: self
-    public func addTextField(_ configurationHandler: ((UITextField) -> ())? = nil) -> AlertBase {
+    public func addTextField(_ configurationHandler: ((UITextField) -> Void)? = nil) -> AlertBase {
         alert?.addTextField(configurationHandler: configurationHandler)
         return self
     }

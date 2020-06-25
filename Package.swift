@@ -10,6 +10,6 @@ import PackageDescription
 
 let package = Package(
     name: "Message",
-    dependencies : [],
+    dependencies: [],
     exclude: ["Tests"]
 )
