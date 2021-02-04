@@ -1,6 +1,6 @@
 Pod::Spec.new do |spec|
     spec.name           = "Message"
-    spec.version        = "1.0.6"
+    spec.version        = "1.0.7"
     spec.summary        = "A simple and useful wrapper for showing information messages"
 
     spec.homepage       = "https://github.com/incetro/Message.git"
@@ -9,7 +9,7 @@ Pod::Spec.new do |spec|
     spec.requires_arc   = true
     spec.swift_version = "5.0"
 
-    spec.ios.deployment_target = "8.0"
+    spec.ios.deployment_target = "9.0"
 
     spec.source                 = { git: "https://github.com/incetro/Message.git", tag: "#{spec.version}"}
     spec.source_files           = "Message/Sources/**/*.{h,swift}"
