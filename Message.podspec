@@ -9,7 +9,7 @@ Pod::Spec.new do |spec|
     spec.requires_arc   = true
     spec.swift_version = "5.0"
 
-    spec.ios.deployment_target = "9.0"
+    spec.ios.deployment_target = "12.0"
 
     spec.source                 = { git: "https://github.com/incetro/Message.git", tag: "#{spec.version}"}
     spec.source_files           = "Message/Sources/**/*.{h,swift}"
