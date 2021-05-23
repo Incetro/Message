@@ -7,12 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		331B842C265A40EE00BDB385 /* Message.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 33DD34531F1371CD00938FE4 /* Message.framework */; };
 		33DD343A1F1371A200938FE4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33DD34391F1371A200938FE4 /* AppDelegate.swift */; };
 		33DD343C1F1371A200938FE4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33DD343B1F1371A200938FE4 /* ViewController.swift */; };
 		33DD343F1F1371A200938FE4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 33DD343D1F1371A200938FE4 /* Main.storyboard */; };
 		33DD34411F1371A200938FE4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 33DD34401F1371A200938FE4 /* Assets.xcassets */; };
 		33DD34441F1371A200938FE4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 33DD34421F1371A200938FE4 /* LaunchScreen.storyboard */; };
-		33DD34541F1371CD00938FE4 /* Message.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 33DD34531F1371CD00938FE4 /* Message.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,7 +31,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				33DD34541F1371CD00938FE4 /* Message.framework in Frameworks */,
+				331B842C265A40EE00BDB385 /* Message.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -108,6 +108,7 @@
 				TargetAttributes = {
 					33DD34351F1371A200938FE4 = {
 						CreatedOnToolsVersion = 8.3.3;
+						DevelopmentTeam = 7Q8EP54N3L;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -294,6 +295,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 7Q8EP54N3L;
 				INFOPLIST_FILE = MessageExample/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.incetro.MessageExample;
@@ -307,6 +309,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 7Q8EP54N3L;
 				INFOPLIST_FILE = MessageExample/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.incetro.MessageExample;

@@ -10,7 +10,7 @@ import Foundation
 
 // MARK: - AlertDelegate
 
-public protocol AlertDelegate: class {
+public protocol AlertDelegate: AnyObject {
 
     /// Runs before showing alert
     ///
