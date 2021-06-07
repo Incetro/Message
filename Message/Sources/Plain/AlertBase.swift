@@ -55,8 +55,7 @@ public class AlertBase: AlertProtocol {
     /// - Parameter title: Button title
     /// - Returns: self
     public func addDestructiveButton(withTitle title: String) -> Self {
-        alert?.addAction(UIAlertAction(title: title, style: .destructive) { [weak self] _ in
-            guard let self = self else { return }
+        alert?.addAction(UIAlertAction(title: title, style: .destructive) { _ in
             self.delegate?.willDisappear(self)
             self.delegate?.didDisappear(self)
         })
@@ -68,8 +67,7 @@ public class AlertBase: AlertProtocol {
     /// - Parameter title: Button title
     /// - Returns: self
     public func addCancelButton(withTitle title: String) -> Self {
-        alert?.addAction(UIAlertAction(title: title, style: .cancel) { [weak self] _ in
-            guard let self = self else { return }
+        alert?.addAction(UIAlertAction(title: title, style: .cancel) { _ in
             self.delegate?.willDisappear(self)
             self.delegate?.didDisappear(self)
         })
@@ -81,8 +79,7 @@ public class AlertBase: AlertProtocol {
     /// - Parameter title: Button title
     /// - Returns: self
     public func addButton(withTitle title: String) -> Self {
-        alert?.addAction(UIAlertAction(title: title, style: .default) { [weak self] _ in
-            guard let self = self else { return }
+        alert?.addAction(UIAlertAction(title: title, style: .default) { _ in
             self.delegate?.willDisappear(self)
             self.delegate?.didDisappear(self)
         })
@@ -99,8 +96,7 @@ public class AlertBase: AlertProtocol {
         withTitle title: String,
         andAction action: @escaping (_ alert: AlertBase) -> Void
     ) -> Self {
-        alert?.addAction(UIAlertAction(title: title, style: .cancel) { [weak self] _ in
-            guard let self = self else { return }
+        alert?.addAction(UIAlertAction(title: title, style: .cancel) { _ in
             self.delegate?.willDisappear(self)
             action(self)
             self.delegate?.didDisappear(self)
@@ -118,8 +114,7 @@ public class AlertBase: AlertProtocol {
         withTitle title: String,
         andAction action: @escaping (_ alert: AlertBase) -> Void
     ) -> Self {
-        alert?.addAction(UIAlertAction(title: title, style: .destructive) { [weak self] _ in
-            guard let self = self else { return }
+        alert?.addAction(UIAlertAction(title: title, style: .destructive) { _ in
             self.delegate?.willDisappear(self)
             action(self)
             self.delegate?.didDisappear(self)
@@ -137,8 +132,7 @@ public class AlertBase: AlertProtocol {
         withTitle title: String,
         andAction action: @escaping (_ alert: AlertBase) -> Void
     ) -> Self {
-        alert?.addAction(UIAlertAction(title: title, style: .default) { [weak self] _ in
-            guard let self = self else { return }
+        alert?.addAction(UIAlertAction(title: title, style: .default) { _ in
             self.delegate?.willDisappear(self)
             action(self)
             self.delegate?.didDisappear(self)
@@ -160,8 +154,7 @@ public class AlertBase: AlertProtocol {
         if let alert = alert {
             DispatchQueue.main.async {
                 delegate?.willShow(self)
-                controller.present(alert, animated: true, completion: { [weak self] in
-                    guard let self = self else { return }
+                controller.present(alert, animated: true, completion: {
                     completion?()
                     delegate?.didShow(self)
                 })
@@ -173,8 +166,7 @@ public class AlertBase: AlertProtocol {
 
     public func close() {
         delegate?.willDisappear(self)
-        alert?.dismiss(animated: true) { [weak self] in
-            guard let self = self else { return }
+        alert?.dismiss(animated: true) {
             self.delegate?.didDisappear(self)
         }
     }
@@ -186,8 +178,7 @@ public class AlertBase: AlertProtocol {
         `in` controller: UIViewController,
         after timeInterval: Double
     ) {
-        DispatchQueue.main.asyncAfter(deadline: .now() + timeInterval) { [weak self] in
-            guard let self = self else { return }
+        DispatchQueue.main.asyncAfter(deadline: .now() + timeInterval) {
             self.show(in: controller)
         }
     }
@@ -213,8 +204,7 @@ public class AlertBase: AlertProtocol {
         after showTimeInterval: Double,
         andCloseAfter closeTimeInterval: Double
     ) {
-        DispatchQueue.main.asyncAfter(deadline: .now() + showTimeInterval) { [weak self] in
-            guard let self = self else { return }
+        DispatchQueue.main.asyncAfter(deadline: .now() + showTimeInterval) {
             self.show(in: controller)
             self.close(after: closeTimeInterval)
         }
@@ -226,8 +216,7 @@ public class AlertBase: AlertProtocol {
     ///
     /// - Parameter timeInterval: given interval
     private func close(after timeInterval: Double) {
-        DispatchQueue.main.asyncAfter(deadline: .now() + timeInterval) { [weak self] in
-            guard let self = self else { return }
+        DispatchQueue.main.asyncAfter(deadline: .now() + timeInterval) {
             self.close()
         }
     }
