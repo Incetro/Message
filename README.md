@@ -1,4 +1,4 @@
-![Placeholder](https://user-images.githubusercontent.com/13930558/28310017-c3f8c296-6bb3-11e7-9572-83f99515149e.png)
+![](message.png)
 
 [![Build Status](https://travis-ci.org/incetro/Message.svg?branch=master)](https://travis-ci.org/incetro/Message)
 [![CocoaPods](https://img.shields.io/cocoapods/v/Message.svg)](https://img.shields.io/cocoapods/v/Message.svg)
