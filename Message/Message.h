@@ -2,11 +2,10 @@
 //  Message.h
 //  Message
 //
-//  Created by incetro on 10/07/2017.
-//  Copyright © 2017 Incetro. All rights reserved.
+//  Created by Дмитрий Савинов on 04.08.2021.
 //
 
-#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
 
 //! Project version number for Message.
 FOUNDATION_EXPORT double MessageVersionNumber;
